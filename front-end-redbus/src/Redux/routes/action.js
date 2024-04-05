@@ -17,12 +17,14 @@ const getRoutesFailure = () => {
   };
 };
 const getRoutes = () => {
-  console.log("heloooo");
+  console.log("hello");
+  console.log("123")
   return async (dispatch) => {
     dispatch(getRoutesRequest());
     try {
+      
       const res = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/v1/api/routes`
+        "http://localhost:3020/v1/api/routes"
       );
       dispatch(getRoutesSuccess(res.data));
     } catch (err) {

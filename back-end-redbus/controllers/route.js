@@ -3,17 +3,20 @@ const Bus = require("../models/bus");
 const Booking = require("../models/boooking");
 exports.getAllRoutes = async (req, res) => {
   let routes = await Route.find().lean().exec();
+  console.log("asdfg",routes);
   res.send(routes);
 };
 
 // get route,buses and available seats based on "Customer Search for:  "Departure,Arrival,Date"
 exports.getOneRoute = async (req, res) => {
+  console.log("1234567890")
   let departure = req.params.departure;
   let arrival = req.params.arrival;
   let date = req.params.date;
 
   // get the relevant route
   let routes = await Route.find().lean().exec();
+  console.log("123456:",routes);
   let route = routes.find((route) => {
     return (
       route.departureLocation.name.toLowerCase() == departure.toLowerCase() &&

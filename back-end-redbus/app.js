@@ -7,6 +7,12 @@ const stripe = require("stripe")(
   "sk_test_51D9ybxG1hGhZmBxsXKTXZ2VMP721dPDl4O1rd3FDyj7X0A9Ffhc3NFt4MhRob20DahnErmtteUwrvY4x9QnSNVx100IXgNpFlI"
 ); // add a stripe key, (this test key will expire on 18th march 2021)
 
+app.use((req, res, next) => {
+  // Set Cross-Origin-Opener-Policy header to same-origin
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+  next();
+});
+
 mongoose.pluralize(null);
 app.use(express.json());
 app.use(cors());
@@ -50,10 +56,12 @@ app.use(bookingHireRoutes);
 
 const busServiceRoutes = require("./routes/busservice");
 app.use(busServiceRoutes);
+// index.html or App.js
+
 
 const connect = () => {
   return mongoose.connect(
-    "mongodb+srv://redbus_db_user_1:umJkhSujb8dZoc2a@redbuscnstructweek.bujg6.mongodb.net/redbus?retryWrites=true&w=majority",
+    "mongodb://localhost:27017/RedBus",
     {
       useCreateIndex: true,
       useNewUrlParser: true,

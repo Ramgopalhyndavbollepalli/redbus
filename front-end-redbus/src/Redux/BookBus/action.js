@@ -36,7 +36,7 @@ export const getBusDetails = (depart, arrival, date) => (dispatch) => {
   dispatch(busDetailsRequest());
   axios
     .get(
-      `${process.env.REACT_APP_BACKEND_URL}/v1/api/routes/${depart}/${arrival}/${date}`
+      `http://localhost:3020/v1/api/routes/${depart}/${arrival}/${date}`
     )
     .then((res) => dispatch(busDetailsSuccess(res.data)))
     .catch((err) => dispatch(busDetailsFail()));

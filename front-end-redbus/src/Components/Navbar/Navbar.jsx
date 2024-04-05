@@ -162,7 +162,7 @@ const Navbar = () => {
                   <MenuItem onClick={handleClose2}>
                     <GoogleLogin
                       // clientId="493530183469-naj3i844vuh8ru5usav057k5kuabc3iq.apps.googleusercontent.com"
-                      clientId="446362734274-cq1j14nuk3ov3elpe64dbnosinakaoof.apps.googleusercontent.com"
+                      clientId="173422320387-vivdvbpuu3h5nf38icucgb44v71h8ut9.apps.googleusercontent.com"
                       onSuccess={(response) => {
                         console.log(
                           "---------------------------CALLED-------------------------------"
